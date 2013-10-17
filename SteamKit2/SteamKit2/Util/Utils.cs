@@ -244,7 +244,7 @@ namespace SteamKit2
         }
     }
 
-    static class WebHelpers
+    public static class WebHelpers
     {
         static bool IsUrlSafeChar( char ch )
         {
@@ -267,6 +267,13 @@ namespace SteamKit2
         public static string UrlEncode( string input )
         {
             return UrlEncode( Encoding.UTF8.GetBytes( input ) );
+        }
+
+
+        static public string EncodeToBase64(string toEncode)
+        {
+            byte[] toEncodeAsBytes = ASCIIEncoding.ASCII.GetBytes(toEncode);
+            return Convert.ToBase64String(toEncodeAsBytes);
         }
 
 
